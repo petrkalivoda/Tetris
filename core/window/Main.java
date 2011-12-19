@@ -58,7 +58,7 @@ public class Main extends JFrame{
         menuBar.add(game);
         JMenuItem newGame = new JMenuItem("Nová hra");
         JMenuItem exitGame = new JMenuItem("Ukončit");
-        JMenuItem clearScore = new JMenuItem("Vynulovat high score");
+        JMenuItem clearScore = new JMenuItem("Vymazat high score");
         game.add(newGame);
         game.add(clearScore);
         game.addSeparator();
@@ -77,7 +77,7 @@ public class Main extends JFrame{
                     Game.sendEvent(Event.PAUSE); // pauza hry
                 }
 
-                int response = JOptionPane.showConfirmDialog(null, "Opravdu chcete vynulovat high score?",
+                int response = JOptionPane.showConfirmDialog(null, "Opravdu chcete vymazat high score?",
                         "Varování", JOptionPane.YES_NO_OPTION);
 
                 if(response == 0) {
