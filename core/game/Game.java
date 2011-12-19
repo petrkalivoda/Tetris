@@ -163,7 +163,7 @@ public class Game {
      */
     public static int getScore() {
         if(state instanceof GameState) {
-            if(state.getScore() > highScore) {
+            if(state.getScore() > highScore && !state.isOver()) {
                 highScore = state.getScore();
             }
             return state.getScore();
