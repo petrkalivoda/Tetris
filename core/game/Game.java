@@ -3,10 +3,8 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.io.IOException;
+import java.util.Base64;
 import java.util.LinkedList;
-import sun.misc.BASE64Decoder;
-import sun.misc.BASE64Encoder;
 
 /**
  * Trida reprezentujici instanci hry
@@ -32,8 +30,7 @@ public class Game {
         if(file.exists()) {
             try {
                 BufferedReader br = new BufferedReader(new FileReader(file));
-                BASE64Decoder decoder = new BASE64Decoder();
-                highScore = Integer.parseInt(new String(decoder.decodeBuffer(br.readLine())));
+                highScore = Integer.parseInt(new String(Base64.getDecoder().decode(br.readLine())));
 
             }catch(java.io.IOException e) {/* nic */}
         }
@@ -227,8 +224,7 @@ public class Game {
      * Zapíše high score do souboru
      */
     public static void writeHighScore() {
-        BASE64Encoder encoder = new BASE64Encoder();
-        String encoded = encoder.encode(String.valueOf(highScore).getBytes());
+        String encoded = new String(Base64.getEncoder().encode(String.valueOf(highScore).getBytes()));
         try {
             FileWriter fw = new FileWriter("score.dat");
             fw.write(encoded);
