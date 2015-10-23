@@ -61,7 +61,7 @@ public class GameState implements Serializable {
      * Provede udalost ve hre
      * @param code
      */
-    public void doEvent(int code) {
+    public synchronized void doEvent(int code) {
        if(gameOver || !(currentPiece instanceof IPiece)) { //pojistka
            return;
        }
@@ -90,7 +90,7 @@ public class GameState implements Serializable {
     /**
      * Jeden "tik" hry, pri kterem se hra posouva
      */
-    public void tick() {
+    public synchronized void tick() {
         if(!gameOver) {
             if(!(nextPiece instanceof IPiece)) {
                 nextPiece = randomPiece();
@@ -127,7 +127,7 @@ public class GameState implements Serializable {
      * @param y
      * @return success/error
      */
-    private boolean movePiece(int x, int y) {
+    private synchronized boolean movePiece(int x, int y) {
         if(tryMovePiece(x, y)) {
             piece_x += x;
             piece_y += y;
@@ -142,7 +142,7 @@ public class GameState implements Serializable {
      * @param y
      * @return
      */
-    private boolean tryMovePiece(int x, int y) {
+    private synchronized boolean tryMovePiece(int x, int y) {
         boolean[][] pieceMatrix = currentPiece.getMatrix();
        
         for (int inner_y = 0; inner_y < pieceMatrix.length; inner_y++) { //zkusime x
