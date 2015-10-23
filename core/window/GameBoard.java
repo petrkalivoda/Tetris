@@ -13,9 +13,11 @@ import core.game.IPiece;
  *
  * @author Petr Kalivoda <petr.kalivoda@gmail.com>
  */
-public class GameBoard extends JPanel{
+public class GameBoard extends JPanel {
 
-   // private Timer timer; //casovac
+	private static final long serialVersionUID = 151774623203354278L;
+	
+    //private Timer timer; //casovac
     private GameThread thread;
 
     public GameBoard(JFrame parent) {

@@ -10,7 +10,9 @@ import core.pieces.*;
  */
 public class GameState implements Serializable {
     
-    public static int MATRIX_WIDTH = 0;
+    private static final long serialVersionUID = 2914021037321749096L;
+	
+	public static int MATRIX_WIDTH = 0;
     public static int MATRIX_HEIGHT = 0;
     private int[][] gameMatrix;
     private IPiece currentPiece;
@@ -251,8 +253,7 @@ public class GameState implements Serializable {
     private void removeFullLines() {
         int count = 0;
         boolean full;
-        int[] tmprow = new int[gameMatrix[0].length];
-
+        
         for (int y = gameMatrix.length-1; y >= 0; y--) {
             full = true;
             for (int x = 0; x < gameMatrix[0].length; x++) {

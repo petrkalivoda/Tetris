@@ -15,6 +15,8 @@ import java.util.Locale;
  */
 public class Main extends JFrame{
 
+    private static final long serialVersionUID = -977861979370825357L;
+
     public static final int MATRIX_WIDTH = 10; //sirka pole v kostickach
     public static final int MATRIX_HEIGHT = 22; //vyska pole v kostickach
 

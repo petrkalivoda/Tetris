@@ -31,8 +31,9 @@ public class Game {
             try {
                 BufferedReader br = new BufferedReader(new FileReader(file));
                 highScore = Integer.parseInt(new String(Base64.getDecoder().decode(br.readLine())));
-
+                br.close();
             }catch(java.io.IOException e) {/* nic */}
+            
         }
     }
 
